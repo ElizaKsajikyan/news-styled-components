@@ -1,5 +1,6 @@
 import {Input} from "../Input";
 import {Button} from "../Button";
+import {useState} from "react";
 
 function SearchComponent({onClickSearch}){
     const [inputVal,setInputValue]=useState('')
