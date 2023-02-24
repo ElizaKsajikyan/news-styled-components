@@ -18,13 +18,17 @@ function NewsListPage({search}) {
 
     }, [search])
 
-
         return (
-            <CardsContainer>
-                {!!data.count && data.results.map((el) => (
-                    el.title ? <Card key={el.id} data={el}/> : null
-                ))}
-            </CardsContainer>
+            <>
+                {
+                    !!data.count ?   <CardsContainer>
+                        {!!data.count && data.results.map((el) => (
+                            el.title ? <Card key={el.id} data={el}/> : null
+                        ))}
+                    </CardsContainer> : <NoResult>No Result</NoResult>
+                }
+
+            </>
         )
 
 }
