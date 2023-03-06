@@ -1,6 +1,5 @@
 import Card from "../Card";
 import {CardsContainer} from "../CardsContainer";
-import {useEffect, useState} from "react";
 import styled from "styled-components";
 
 const NoResult=styled.p`
@@ -8,16 +7,8 @@ const NoResult=styled.p`
   text-align: center;
   margin: 50px auto;
 `
-function NewsListPage({search}) {
-    const [data, setData] = useState([])
 
-    useEffect(() => {
-        fetch(!search?'https://api.labor-rights.am/news':`https://api.labor-rights.am/news?search=${search}`)
-            .then(response => response.json())
-            .then(json => setData(json))
-
-    }, [search])
-
+function NewsListPage({data}) {
         return (
             <>
                 {
