@@ -3,6 +3,7 @@ import Header from "./Header";
 import NewsListPage from "./NewsListPage";
 import NewsPage from "./NewsPage";
 import apiHOC from "./HOC/apiHOC";
+import FreeVacancies from "./FreeVacancies";
 
 function App() {
     const [search, setSearchParams] = useSearchParams();
@@ -14,7 +15,8 @@ function App() {
         return setSearchParams()
     }
 
-    const DataNewsListPage = apiHOC(NewsListPage, search.get('search'))
+    const DataNewsListPage = apiHOC(NewsListPage, search.get('search'),'https://api.labor-rights.am/news');
+    const DataVacanciesPage = apiHOC(FreeVacancies, search.get('search'),'https://api.labor-rights.am/free-vacancies');
 
     return (
         <>
@@ -22,6 +24,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<DataNewsListPage/>}/>
                 <Route path='/:id' element={<NewsPage/>}/>
+                <Route path='/free-vacancies' element={<DataVacanciesPage/>}/>
             </Routes>
         </>
     );

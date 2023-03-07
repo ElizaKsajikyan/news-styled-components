@@ -1,12 +1,6 @@
 import Card from "../Card";
 import {CardsContainer} from "../CardsContainer";
-import styled from "styled-components";
-
-const NoResult=styled.p`
-  font-size:50px;
-  text-align: center;
-  margin: 50px auto;
-`
+import {NoResult} from "../NoResult";
 
 function NewsListPage({data}) {
         return (

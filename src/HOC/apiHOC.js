@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 
-function GetList(Component, search){
+function GetList(Component, search,url){
       function NewComponent(){
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(!search?'https://api.labor-rights.am/news':`https://api.labor-rights.am/news?search=${search}`)
+        fetch(!search? url:`${url}?search=${search}`)
             .then(response => response.json())
             .then(json => setData(json))
 
